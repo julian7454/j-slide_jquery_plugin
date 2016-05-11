@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>輪播圖</title>
+	</head>
+	<style>
+		@keyframes fadeInTopSlight {
+			0% {
+				opacity: 0;
+				transform: translate3d(0,-20px, 0);
+			}
+			100% { 
+				opacity: 1;
+				transform: none;
+			}
+		}
+		
+		@keyframes fadeInLeftSlight {
+			0% { 
+				opacity: 0;
+				transform: translate3d(-50px, 0, 0);
+			}
+			100% {
+				opacity: 1;
+				transform: none;
+			}
+		}
+
+		@keyframes fadeIn {
+			0% { 
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		#index_slider {
+			position:relative;
+			height:346px;
+			font-family:serif ,'新細明體';
+			overflow: hidden;
+		}
+
+		#index_slider .control {
+			position:absolute;
+			bottom:10px;
+			left:10px;
+			//text-indent:-9999px;
+		}
+
+		#index_slider .control a{
+			width:8px;
+			height:8px;
+			margin:0 5px;
+			display:inline-block;
+			background:#666;
+			border-radius: 50%;
+		}
+
+		#index_slider .control a.active{
+			background:#cb8787;
+		}
+
+		#index_slider > div {
+			width:949px;
+			height:346px;
+			position:absolute;
+			opacity:0;
+			-webkit-transition: all 2s; /* Safari */
+    		transition: all 2s;
+		}
+
+		#index_slider > div.active {
+			opacity:1;
+		}
+
+		#index_slider .inner {
+			position:absolute;
+			top:10px;
+			left:10px;
+			padding:0 32px;
+		}
+
+		#index_slider > div img {
+			width:949px;
+			height:346px;
+			//opacity:0;
+			
+		}
+
+		#index_slider > div.active img {
+			transition: display 3s ease-in-out ;
+			//opacity:1;
+			
+		}
+
+		#index_slider > div .inner h1{
+			color:#fff;
+			font-size:40px;
+			width:300px;
+			margin-bottom:5px;
+		}
+
+		#index_slider > div .inner h1 > div{
+			border:1px solid #fff;
+			margin-top:5px;
+		}
+
+		#index_slider > div .inner h1 > span{
+			font-size:25px;
+		}
+
+		#index_slider > div .inner h2{
+			color:#a59589;
+			width:480px;
+			font-size:18px;
+
+		}
+
+		#index_slider > div .inner h3{
+			color:#fff;
+			font-size:14px;
+			line-height:22px;
+			font-weight:normal;
+			letter-spacing:2px;
+			width:440px;
+		}
+
+		#index_slider > div.active .inner.animated h1,#index_slider > div.active .inner.animated h1 > div ,#index_slider > div.active .inner.animatedDelay h2, #index_slider > div.active .inner.animatedDelay h3 {
+			animation-duration: 1.5s;
+			animation-fill-mode: both;
+		}
+
+		#index_slider > div.active .inner.animatedDelay h1 {
+			animation-delay: .2s;
+		}
+
+		#index_slider > div.active .inner.animatedDelay h1 > div {
+			animation-delay: 1s;
+		}
+
+		#index_slider > div.active .inner.animatedDelay h2 {
+			animation-delay: 1s;
+		}
+
+		#index_slider > div.active .inner.animatedDelay h3 {
+			animation-delay: 1.5s;
+		}
+		
+			
+		#index_slider > div.active .inner.fadeInLeftSlight h2{
+			animation-name: fadeInLeftSlight;
+		}
+
+		#index_slider > div.active .inner.fadeInTopSlight h1{
+			animation-name: fadeInTopSlight;
+		}
+
+		#index_slider > div.active .inner.fadeInTopSlight h1 > div{
+			animation-name: fadeIn;
+		}
+
+		#index_slider > div.active .inner.fadeIn h3{
+			animation-name: fadeIn;
+		}
+
+		
+	</style>
+	<body>
+		<div id="index_slider"></div>
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+		<script src="slide.js"></script>
+		<script src="index.js"></script>
+	</body>
+
+		
+</html>
